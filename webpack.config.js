@@ -3,19 +3,20 @@ const path = require('path');
 const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-const clientPath = path.join(__dirname, 'client');
+// const clientPath = path.join(__dirname, 'client');
 const serverPublicPath = path.join(__dirname, 'server', 'public');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: [
-    clientPath,
-    isDevelopment && 'webpack-hot-middleware/client?timeout=1000'
-  ].filter(Boolean),
+  entry: './client/index.ts',
+  // [
+  //   clientPath,
+  //   isDevelopment && 'webpack-hot-middleware/client?timeout=1000'
+  // ].filter(Boolean),
   resolve: {
-    extensions: ['.js', '.jsx']
+    extensions: ['.tsx', '.ts', '.js']
   },
   output: {
     path: serverPublicPath
@@ -23,14 +24,12 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
+        test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'babel-loader',
+          loader: 'ts-loader',
           options: {
-            presets: [
-              '@babel/preset-env'
-            ],
+            presets: ['@babel/preset-env'],
             plugins: [
               '@babel/plugin-transform-react-jsx',
               isDevelopment && 'react-refresh/babel'
@@ -40,10 +39,7 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: [
-          'style-loader',
-          'css-loader'
-        ]
+        use: ['style-loader', 'css-loader']
       }
     ]
   },

@@ -53,8 +53,8 @@ export default function LandingPage() {
     setFirstTWCompleted(true);
   }, 2500);
 
-  const render2ndTW = (firstTWCompleted) => {
-    if (!firstTWCompleted) return <></>;
+  const render2ndTW = (firstTWCompleted: boolean): React.ReactElement => {
+    if (!firstTWCompleted) return <React.Fragment></React.Fragment>;
 
     return (
       <Typewriter
@@ -82,7 +82,7 @@ export default function LandingPage() {
     );
   };
 
-  const renderMarquee = (screenHeight, screenWidth) => {
+  const renderMarquee = (screenHeight: number, screenWidth: number) => {
     if (screenHeight > 640 && screenWidth > 585)
       return (
         <div css={style.fade}>
