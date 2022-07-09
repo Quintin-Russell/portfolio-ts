@@ -3,18 +3,17 @@ const path = require('path');
 const webpack = require('webpack');
 const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
 
-// const clientPath = path.join(__dirname, 'client');
+const clientPath = path.join(__dirname, 'client');
 const serverPublicPath = path.join(__dirname, 'server', 'public');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
 module.exports = {
   mode: process.env.NODE_ENV,
-  entry: './client/index.ts',
-  // [
-  //   clientPath,
-  //   isDevelopment && 'webpack-hot-middleware/client?timeout=1000'
-  // ].filter(Boolean),
+  entry: [
+    clientPath,
+    isDevelopment && 'webpack-hot-middleware/client?timeout=1000'
+  ].filter(Boolean),
   resolve: {
     extensions: ['.tsx', '.ts', '.js']
   },
@@ -27,19 +26,29 @@ module.exports = {
         test: /\.tsx?$/,
         exclude: /node_modules/,
         use: {
-          loader: 'ts-loader',
+          loader: 'babel-loader',
           options: {
             presets: ['@babel/preset-env'],
             plugins: [
-              '@babel/plugin-transform-react-jsx',
+              '@babel/plugin-transform-typescript',
+              '@emotion/babel-plugin',
               isDevelopment && 'react-refresh/babel'
             ].filter(Boolean)
           }
         }
       },
       {
-        test: /\.css$/,
-        use: ['style-loader', 'css-loader']
+        test: /\.(gif|png|jpe?g|svg)$/i,
+        use: [
+          'file-loader',
+          {
+            loader: 'image-webpack-loader',
+            options: {
+              bypassOnDebug: true,
+              disable: true
+            }
+          }
+        ]
       }
     ]
   },

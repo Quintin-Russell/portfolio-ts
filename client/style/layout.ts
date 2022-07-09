@@ -1,7 +1,7 @@
 import { css } from '@emotion/react';
-import background1 from '../../server/public/images/background/background1.jpg';
-import background2 from '../../server/public/images/background/background2.jpg';
-import background3 from '../../server/public/images/background/background3.jpeg';
+// import background1 from '../../server/public/images/background/background1.jpg';
+// import background2 from '../../server/public/images/background/background2.jpg';
+// import background3 from '../../server/public/images/background/background3.jpeg';
 
 export default {
   //over-rides ctrls
@@ -15,19 +15,19 @@ export default {
 
   //background
   bkg1: css`
-    background-image: url(${background1});
+    background-image: url('../../server/public/images/background/background1.jpg'});
     background-size: cover !important;
     overflow: hidden scroll;
   `,
 
   bkg2: css`
-    background-image: url(${background2});
+    background-image: url('../../server/public/images/background/background2.jpg');
     background-size: cover !important;
     overflow: hidden scroll;
   `,
 
   bkg3: css`
-    background-image: url(${background3});
+    background-image: url(${'../../server/public/images/background/background3.jpeg'});
     background-size: cover !important;
     overflow: hidden scroll;
   `,
@@ -213,5 +213,5 @@ export default {
 
   toolsMargin: css`
     margin: 1.5rem 0;
-  `,
+  `
 };

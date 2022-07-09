@@ -24,7 +24,7 @@ export default function Typewriter(props: TypewriterProps) {
   let [counter, setCounter] = useState<number>(0);
   const [dispString, pushDispString] = useReducer(
     (dispString: Word[], newVal: Word) => [...dispString, newVal],
-    [],
+    []
   );
 
   const tarStringSplit: string[] = props.tarString
@@ -42,11 +42,11 @@ export default function Typewriter(props: TypewriterProps) {
         const nextWord = props.bold.includes(tarStringSplit[counter])
           ? {
               word: tarStringSplit[counter],
-              bold: 'bold',
+              bold: 'bold'
             }
           : {
               word: tarStringSplit[counter],
-              bold: 'normal',
+              bold: 'normal'
             };
         pushDispString(nextWord);
         setCounter(counter++);
