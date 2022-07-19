@@ -28,8 +28,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
           options: {
-            presets: ['@babel/preset-env'],
+            presets: ['@babel/preset-typescript', '@babel/preset-env'],
             plugins: [
+              '@babel/proposal-class-properties',
+              '@babel/proposal-object-rest-spread',
               '@babel/plugin-transform-typescript',
               '@emotion/babel-plugin',
               isDevelopment && 'react-refresh/babel'

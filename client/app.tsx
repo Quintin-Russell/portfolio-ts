@@ -2,7 +2,7 @@
 import React, { useState, useEffect } from 'react';
 import $ from 'jquery';
 
-import ScreenSizeContext from './context/use-screen-size';
+import { useScreenSize, ScreenSizeContext } from './context/use-screen-size';
 import parseRoute from './parse-route';
 
 import LandingPage from './pages/landing-page';

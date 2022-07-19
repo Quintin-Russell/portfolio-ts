@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React, { Fragment, useState } from 'react';
-import useScreenSize from '../context/use-screen-size.js';
+import { useScreenSize } from '../context/use-screen-size.js';
 import { jsx, css } from '@emotion/react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 
@@ -20,7 +20,7 @@ const marqueeDiv = [
   layout.alignC,
   layout.justCent,
   layout.margin1rem,
-  style.borderLight,
+  style.borderLight
 ];
 const marqueeA = [layout.margin1rem, layout.padding2rem, style.incon];
 
@@ -28,21 +28,21 @@ const settings = {
   pages: 2,
   bkg1: {
     offset: 0,
-    factor: 1,
+    factor: 1
   },
   bkg2: {
     offset: 1,
-    factor: 1,
+    factor: 1
   },
   bkg3: {
     offset: 0,
-    factor: 0,
+    factor: 0
   },
   parallax1: {
     offset: 0.3,
     factor: 1,
-    speed: 0.75,
-  },
+    speed: 0.75
+  }
 };
 
 export default function LandingPage() {
@@ -75,7 +75,7 @@ export default function LandingPage() {
           'jQuery,',
           'Express.js,',
           'PostgreSQL,',
-          'Python,',
+          'Python,'
         ]}
         interval={175}
       />
@@ -97,7 +97,7 @@ export default function LandingPage() {
                   key={x.name}
                   style={{
                     minWidth: `${screenSize.width / pageArr.length}px`,
-                    borderRadius: '3rem',
+                    borderRadius: '3rem'
                   }}
                   css={[marqueeDiv]}
                 >
@@ -200,7 +200,7 @@ export default function LandingPage() {
                 'impactful',
                 'applications',
                 'that',
-                'work.',
+                'work.'
               ]}
               cursorDisappear={true}
               interval={200}
