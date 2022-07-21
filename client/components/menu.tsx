@@ -1,8 +1,5 @@
 /** @jsx jsx */
 import React from 'react';
-// import { jsx, css } from '@emotion/react/macro';
-import { jsx } from '@emotion/react';
-import { css } from '@emotion/core';
 import { VscListSelection } from 'react-icons/vsc';
 
 import style from '../style/style';
