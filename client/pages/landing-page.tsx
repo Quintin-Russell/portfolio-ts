@@ -1,9 +1,6 @@
 /** @jsx jsx */
-import React, { Fragment, useState } from 'react';
+import React, { useState } from 'react';
 import { useScreenSize } from '../context/use-screen-size';
-// import { jsx, css } from '@emotion/react';
-import { jsx } from '@emotion/react';
-import { css } from '@emotion/core';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 
 import Header from '../components/header';
