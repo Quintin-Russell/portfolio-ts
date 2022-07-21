@@ -1,6 +1,8 @@
 /** @jsx jsx */
 import React, { useState, useReducer, useEffect } from 'react';
-import { jsx, css } from '@emotion/react';
+// import { jsx, css } from '@emotion/react';
+import { jsx } from '@emotion/react';
+import { css } from '@emotion/core';
 
 import style from '../style/style';
 import layout from '../style/layout';
