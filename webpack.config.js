@@ -1,58 +1,51 @@
-require('dotenv/config');
 const path = require('path');
-const webpack = require('webpack');
-const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ReactRefreshPlugin = require('@pmmmwh/react-refresh-webpack-plugin');
+const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshTypeScript = require('react-refresh-typescript');
 
-const clientPath = path.join(__dirname, 'client');
-const serverPublicPath = path.join(__dirname, 'server', 'public');
-
-const isDevelopment = process.env.NODE_ENV === 'development';
+const isDevelopment = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-  mode: process.env.NODE_ENV,
-  entry: [
-    clientPath,
-    isDevelopment && 'webpack-hot-middleware/client?timeout=1000'
-  ].filter(Boolean),
-  resolve: {
-    extensions: ['.js', '.jsx']
+  mode: isDevelopment ? 'development' : 'production',
+  devServer: {
+    client: { overlay: false }
   },
-  output: {
-    path: serverPublicPath
+  entry: {
+    main: './client/index.tsx'
   },
   module: {
     rules: [
       {
-        test: /\.jsx?$/,
-        exclude: /node_modules/,
-        use: {
-          loader: 'babel-loader',
-          options: {
-            presets: [
-              '@babel/preset-env'
-            ],
-            plugins: [
-              '@babel/plugin-transform-react-jsx',
-              isDevelopment && 'react-refresh/babel'
-            ].filter(Boolean)
-          }
-        }
-      },
-      {
-        test: /\.css$/,
+        test: /\.tsx?$/,
+        include: path.join(__dirname, 'client'),
         use: [
-          'style-loader',
-          'css-loader'
+          // { options: { plugins: ['@emotion/babel-plugin'] } },
+          {
+            loader: 'ts-loader',
+            options: {
+              configFile: isDevelopment ? 'tsconfig.dev.json' : 'tsconfig.json',
+              transpileOnly: true,
+              ...(isDevelopment && {
+                getCustomTransformers: () => ({
+                  before: [ReactRefreshTypeScript()]
+                })
+              })
+            }
+          }
         ]
       }
     ]
   },
-  stats: 'minimal',
-  devtool: isDevelopment ? 'cheap-module-source-map' : 'source-map',
   plugins: [
-    new webpack.EnvironmentPlugin([]),
-    isDevelopment && new ReactRefreshWebpackPlugin(),
-    isDevelopment && new webpack.NoEmitOnErrorsPlugin(),
-    isDevelopment && new webpack.HotModuleReplacementPlugin()
-  ].filter(Boolean)
+    isDevelopment && new ReactRefreshPlugin(),
+    new ForkTsCheckerWebpackPlugin(),
+    new HtmlWebpackPlugin({
+      filename: './index.html',
+      template: './server/public/index.html'
+    })
+  ].filter(Boolean),
+  resolve: {
+    extensions: ['.js', '.ts', '.tsx']
+  }
 };
