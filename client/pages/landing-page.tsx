@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React, { Fragment, useState } from 'react';
-import { useScreenSize } from '../context/use-screen-size.js';
+import { useScreenSize } from '../context/use-screen-size';
 import { jsx, css } from '@emotion/react';
 import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 

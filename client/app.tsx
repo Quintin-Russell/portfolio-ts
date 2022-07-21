@@ -1,6 +1,5 @@
 /** @jsx jsx */
 import React, { useState, useEffect } from 'react';
-import $ from 'jquery';
 
 import { useScreenSize, ScreenSizeContext } from './context/use-screen-size';
 import parseRoute from './parse-route';
@@ -22,15 +21,15 @@ export default function App() {
     height: window.innerHeight
   });
 
-  $(document)[0].title = '../server/public/images/flavicon/favicn.ico';
-  $(window).on('resize', (): void => {
+  document.title = '../server/public/images/flavicon/favicn.ico';
+  window.addEventListener('resize', (): void => {
     const width = window.innerWidth;
     const height = window.innerHeight;
     setScreenSize({ width, height });
   });
 
   useEffect((): void => {
-    $(window).on('hashchange', () => {
+    window.addEventListener('hashchange', () => {
       const newHash: Hash = parseRoute(window.location.hash);
       setHash(newHash);
     });

@@ -20,6 +20,7 @@ module.exports = {
         test: /\.tsx?$/,
         include: path.join(__dirname, 'client'),
         use: [
+          // { options: { plugins: ['@emotion/babel-plugin'] } },
           {
             loader: 'ts-loader',
             options: {

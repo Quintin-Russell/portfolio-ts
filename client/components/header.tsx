@@ -1,6 +1,6 @@
 /** @jsx jsx */
 import React, { useState } from 'react';
-import useScreenSize from '../context/use-screen-size';
+import { useScreenSize } from '../context/use-screen-size';
 import { jsx, css } from '@emotion/react';
 
 import Menu from './menu';
@@ -14,13 +14,13 @@ const headerCss = [
   layout.row,
   layout.justSpbw,
   layout.headerPadding,
-  style.fade,
+  style.fade
 ];
 const headerTextCss = [
   style.incon,
   style.whiteUnderline,
   style.headerA,
-  style.hoverA,
+  style.hoverA
 ];
 const aCss = [layout.padding25, layout.marginHalfRem, style.hoverA];
 
@@ -47,7 +47,7 @@ export default function Header() {
                 layout.menuCont,
                 style.incon,
                 style.borderLight,
-                style.fadeSolid,
+                style.fadeSolid
               ]}
             >
               <a css={aCss} href="#about">{`-ABOUT-`}</a>
