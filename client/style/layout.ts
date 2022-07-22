@@ -1,8 +1,8 @@
 import { css } from '@emotion/react';
+
 // import background1 from '../../server/public/images/background/background1.jpg';
 // import background2 from '../../server/public/images/background/background2.jpg';
 // import background3 from '../../server/public/images/background/background3.jpeg';
-
 export default {
   //over-rides ctrls
   hidden: css`
@@ -14,8 +14,12 @@ export default {
   `,
 
   //background
+
+  /*
+  url('../../server/public/images/background/background1.jpg'});
+  */
   bkg1: css`
-    background-image: url('../../server/public/images/background/background1.jpg'});
+    background-image: url('../../server/public/images/background/background1.jpg');
     background-size: cover !important;
     overflow: hidden scroll;
   `,
@@ -58,6 +62,10 @@ export default {
 
   alignC: css`
     align-items: center;
+  `,
+
+  justEven: css`
+    justify-content: space-evenly;
   `,
 
   justSpbw: css`

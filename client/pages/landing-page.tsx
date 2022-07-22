@@ -126,20 +126,20 @@ const LandingPage = () => {
           <Header />
         </ParallaxLayer> */}
         <LandingPageHeader />
-        <ParallaxLayer
+        {/* <ParallaxLayer
           css={[layout.bkg2]}
           offset={settings.bkg2.offset}
           factor={settings.bkg2.factor}
         >
           <Footer />
-        </ParallaxLayer>
+        </ParallaxLayer> */}
 
-        <ParallaxLayer
+        {/* <ParallaxLayer
           offset={settings.parallax1.offset}
           speed={settings.parallax1.speed}
           factor={settings.parallax1.factor}
         >
-          {/* <div css={layout.margin1rem}>
+          <div css={layout.margin1rem}>
             <div
               css={
                 !lessThan768(screenSize.width)
@@ -181,7 +181,7 @@ const LandingPage = () => {
             >
               {`>`}
             </div>
-          </div> */}
+          </div>
 
           <div css={[layout.smallSidePadding]}>
             {/* <Typewriter
@@ -206,7 +206,7 @@ const LandingPage = () => {
               interval={200}
             /> */}
 
-            {/* {render2ndTW(firstTWCompleted)} */}
+        {/* {render2ndTW(firstTWCompleted)}
           </div>
 
           {/* <div
@@ -219,12 +219,12 @@ const LandingPage = () => {
             <span css={style.landingPgTxt_or}>{`</`}</span>
             <span css={style.landingPgTxt_bl}>{`QuintinRussell`}</span>
             <span css={style.landingPgTxt_or}>{`>`}</span>
-          </div> */}
-        </ParallaxLayer>
+          </div>
+        </ParallaxLayer>*/}
 
-        <ParallaxLayer offset={1.15} factor={0.5} speed={0.75}>
+        {/* <ParallaxLayer offset={1.15} factor={0.5} speed={0.75}>
           {renderMarquee(screenSize.height, screenSize.width)}
-        </ParallaxLayer>
+        </ParallaxLayer> */}
       </Parallax>
     </React.Fragment>
   );

@@ -18,6 +18,10 @@ export default {
     font-weight: 600;
   `,
 
+  fontWeight300: css`
+    font-weight: 300;
+  `,
+
   light: css`
     font-weight: 100;
   `,
@@ -29,6 +33,11 @@ export default {
       #0c0c0c,
       rgba(132, 132, 132, 0.5)
     );
+  `,
+
+  glass: css`
+    background-color: rgba(170 170 170 / 6%);
+    backdrop-filter: blur(5px);
   `,
 
   fadeSolid: css`
@@ -60,6 +69,10 @@ export default {
   `,
 
   //component specific text
+  dropshadow: css`
+    filter: drop-shadow(0 0 1rem black);
+  `,
+
   fadeTxt: css`
     font-size: 2rem;
     font-weight: 300;
@@ -110,11 +123,20 @@ export default {
     border-bottom: 0;
   `,
 
+  noBorderSides: css`
+    border-top: 0.05rem solid #fff;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0.05rem solid #fff;
+  `,
+
   //component specific style
+  /*
+      border-top: 0.1rem solid white;
+  background-color: white;
+   */
   circle: css`
-    background-color: white;
-    height: 10rem;
-    width: 10rem;
+    height: 11rem;
     border-radius: 50%;
   `,
 
