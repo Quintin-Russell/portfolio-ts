@@ -5,6 +5,7 @@ import { Parallax, ParallaxLayer } from '@react-spring/parallax';
 
 import Header from '../components/header';
 import Footer from '../components/footer';
+import LandingPageHeader from '../components/landing-page/landing-page-header';
 import Typewriter from '../components/typewriter';
 import Marquee from 'react-fast-marquee';
 
@@ -44,7 +45,7 @@ const settings = {
   }
 };
 
-export default function LandingPage() {
+const LandingPage = () => {
   const screenSize = useScreenSize();
   const [firstTWCompleted, setFirstTWCompleted] = useState<boolean>(false);
 
@@ -121,10 +122,10 @@ export default function LandingPage() {
   return (
     <React.Fragment>
       <Parallax pages={settings.pages}>
-        <ParallaxLayer css={[layout.bkg1]} factor={settings.bkg1.factor}>
+        {/* <ParallaxLayer css={[layout.bkg1]} factor={settings.bkg1.factor}>
           <Header />
-        </ParallaxLayer>
-
+        </ParallaxLayer> */}
+        <LandingPageHeader />
         <ParallaxLayer
           css={[layout.bkg2]}
           offset={settings.bkg2.offset}
@@ -138,7 +139,7 @@ export default function LandingPage() {
           speed={settings.parallax1.speed}
           factor={settings.parallax1.factor}
         >
-          <div css={layout.margin1rem}>
+          {/* <div css={layout.margin1rem}>
             <div
               css={
                 !lessThan768(screenSize.width)
@@ -180,10 +181,10 @@ export default function LandingPage() {
             >
               {`>`}
             </div>
-          </div>
+          </div> */}
 
           <div css={[layout.smallSidePadding]}>
-            <Typewriter
+            {/* <Typewriter
               font="pfDisp"
               fontSize={
                 !lessThan768(screenSize.width) ? 'font3rem' : 'font2halfrem'
@@ -203,12 +204,12 @@ export default function LandingPage() {
               ]}
               cursorDisappear={true}
               interval={200}
-            />
+            /> */}
 
-            {render2ndTW(firstTWCompleted)}
+            {/* {render2ndTW(firstTWCompleted)} */}
           </div>
 
-          <div
+          {/* <div
             css={
               !lessThan768(screenSize.width)
                 ? [...jobDesc, layout.margin1rem, style.font3rem]
@@ -218,7 +219,7 @@ export default function LandingPage() {
             <span css={style.landingPgTxt_or}>{`</`}</span>
             <span css={style.landingPgTxt_bl}>{`QuintinRussell`}</span>
             <span css={style.landingPgTxt_or}>{`>`}</span>
-          </div>
+          </div> */}
         </ParallaxLayer>
 
         <ParallaxLayer offset={1.15} factor={0.5} speed={0.75}>
@@ -227,4 +228,6 @@ export default function LandingPage() {
       </Parallax>
     </React.Fragment>
   );
-}
+};
+
+export default LandingPage;

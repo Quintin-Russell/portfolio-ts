@@ -10,7 +10,7 @@ interface MenuProps {
   menuDisplay: boolean;
 }
 
-export default function Menu(props: MenuProps) {
+const Menu = (props: MenuProps) => {
   return (
     <React.Fragment>
       <div
@@ -24,4 +24,6 @@ export default function Menu(props: MenuProps) {
       </div>
     </React.Fragment>
   );
-}
+};
+
+export default Menu;

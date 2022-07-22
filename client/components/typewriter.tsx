@@ -21,7 +21,7 @@ interface Word {
   bold: string;
 }
 
-export default function Typewriter(props: TypewriterProps) {
+const Typewriter = (props: TypewriterProps) => {
   const [cursor, setCursor] = useState<boolean>(true);
   let [counter, setCounter] = useState<number>(0);
   const [dispString, pushDispString] = useReducer(
@@ -85,4 +85,6 @@ export default function Typewriter(props: TypewriterProps) {
       </span>
     </p>
   );
-}
+};
+
+export default Typewriter;

@@ -111,6 +111,13 @@ export default {
   `,
 
   //component specific style
+  circle: css`
+    background-color: white;
+    height: 10rem;
+    width: 10rem;
+    border-radius: 50%;
+  `,
+
   techIconBasics: css`
     height: 10rem;
   `,
@@ -161,5 +168,5 @@ export default {
   //imgs
   img: css`
     height: 5rem;
-  `,
+  `
 };
