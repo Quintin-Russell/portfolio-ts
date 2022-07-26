@@ -1,6 +1,6 @@
 /** @tsx tsx */
-import React from 'react';
-
+import React, { ReactElement } from 'react';
+import { jsx, css } from '@emotion/react';
 import { useScreenSize } from '../../context/use-screen-size';
 import lessThan768 from '../functions/less-than-768';
 import Typewriter from '../typewriter';
@@ -16,7 +16,7 @@ const container = [
   layout.alignC,
   layout.justCent,
   layout.padding2rem,
-  style.fade,
+  // style.fade,
   style.dropshadow,
   style.textCent
 ];
@@ -38,7 +38,7 @@ const aCss = [
   style.cursor
 ];
 
-const LandingPageHeader = () => {
+const LandingPageHeader = (): ReactElement => {
   const screenSize = useScreenSize();
   return (
     <React.Fragment>

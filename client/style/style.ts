@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 
 export default {
   //fonts
@@ -190,5 +190,17 @@ export default {
   //imgs
   img: css`
     height: 5rem;
-  `
+  `,
+
+  bounce: keyframes`
+      49% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      99% {
+        opacity: 0;
+      }
+    `
 };

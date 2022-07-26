@@ -47,40 +47,40 @@ const settings = {
 
 const LandingPage = () => {
   const screenSize = useScreenSize();
-  const [firstTWCompleted, setFirstTWCompleted] = useState<boolean>(false);
+  // const [firstTWCompleted, setFirstTWCompleted] = useState<boolean>(false);
 
-  setTimeout(() => {
-    setFirstTWCompleted(true);
-  }, 2500);
+  // setTimeout(() => {
+  //   setFirstTWCompleted(true);
+  // }, 2500);
 
-  const render2ndTW = (firstTWCompleted: boolean): React.ReactElement => {
-    if (!firstTWCompleted) return <React.Fragment></React.Fragment>;
+  // const render2ndTW = (firstTWCompleted: boolean): React.ReactElement => {
+  //   if (!firstTWCompleted) return <React.Fragment></React.Fragment>;
 
-    return (
-      <Typewriter
-        font="monts"
-        fontSize={!lessThan768(screenSize.width) ? 'font3rem' : 'font2halfrem'}
-        tarString="At my core, I am a constant asker of why? and how did you do that?.
-                  On the outside, I use React.js, jQuery, Express.js, PostgreSQL, Python,
-                  and more to create web-based applications. I am actively looking for
-                  opportunities that allow me to learn everyday and improve in what I know."
-        bold={[
-          'why?',
-          'how',
-          'did',
-          'you',
-          'do',
-          'that?.',
-          'React.js,',
-          'jQuery,',
-          'Express.js,',
-          'PostgreSQL,',
-          'Python,'
-        ]}
-        interval={175}
-      />
-    );
-  };
+  //   return (
+  //     <Typewriter
+  //       font="monts"
+  //       fontSize={!lessThan768(screenSize.width) ? 'font3rem' : 'font2halfrem'}
+  //       tarString="At my core, I am a constant asker of why? and how did you do that?.
+  //                 On the outside, I use React.js, jQuery, Express.js, PostgreSQL, Python,
+  //                 and more to create web-based applications. I am actively looking for
+  //                 opportunities that allow me to learn everyday and improve in what I know."
+  //       bold={[
+  //         'why?',
+  //         'how',
+  //         'did',
+  //         'you',
+  //         'do',
+  //         'that?.',
+  //         'React.js,',
+  //         'jQuery,',
+  //         'Express.js,',
+  //         'PostgreSQL,',
+  //         'Python,'
+  //       ]}
+  //       interval={175}
+  //     />
+  //   );
+  // };
 
   const renderMarquee = (screenHeight: number, screenWidth: number) => {
     if (screenHeight > 640 && screenWidth > 585)
@@ -121,7 +121,7 @@ const LandingPage = () => {
 
   return (
     <React.Fragment>
-      <Parallax pages={settings.pages}>
+      <Parallax css={[layout.bkg1]} pages={settings.pages}>
         {/* <ParallaxLayer css={[layout.bkg1]} factor={settings.bkg1.factor}>
           <Header />
         </ParallaxLayer> */}
