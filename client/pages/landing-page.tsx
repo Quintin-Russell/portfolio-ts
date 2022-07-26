@@ -8,6 +8,7 @@ import Footer from '../components/footer';
 import LandingPageHeader from '../components/landing-page/landing-page-header';
 import Typewriter from '../components/typewriter';
 import Marquee from 'react-fast-marquee';
+import Tile from '../components/landing-page/tiles';
 
 import pageArr from '../pages';
 import lessThan768 from '../components/functions/less-than-768';
@@ -125,7 +126,24 @@ const LandingPage = () => {
         {/* <ParallaxLayer css={[layout.bkg1]} factor={settings.bkg1.factor}>
           <Header />
         </ParallaxLayer> */}
-        <LandingPageHeader />
+
+        <ParallaxLayer>
+          <LandingPageHeader />
+          <Typewriter
+            font="incon"
+            fontSize={
+              !lessThan768(screenSize.width) ? 'font3rem' : 'font2halfrem'
+            }
+            tarString="Hi, I'm Quintin"
+            bold={[]}
+            interval={175}
+          />
+          <div css={[layout.flex, layout.justCent, layout.alignC]}>
+            {pageArr.map((x) => (
+              <Tile page={x} />
+            ))}
+          </div>
+        </ParallaxLayer>
         {/* <ParallaxLayer
           css={[layout.bkg2]}
           offset={settings.bkg2.offset}
@@ -133,7 +151,6 @@ const LandingPage = () => {
         >
           <Footer />
         </ParallaxLayer> */}
-
         {/* <ParallaxLayer
           offset={settings.parallax1.offset}
           speed={settings.parallax1.speed}
@@ -205,7 +222,6 @@ const LandingPage = () => {
               cursorDisappear={true}
               interval={200}
             /> */}
-
         {/* {render2ndTW(firstTWCompleted)}
           </div>
 
@@ -221,7 +237,6 @@ const LandingPage = () => {
             <span css={style.landingPgTxt_or}>{`>`}</span>
           </div>
         </ParallaxLayer>*/}
-
         {/* <ParallaxLayer offset={1.15} factor={0.5} speed={0.75}>
           {renderMarquee(screenSize.height, screenSize.width)}
         </ParallaxLayer> */}

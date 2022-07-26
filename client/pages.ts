@@ -34,3 +34,4 @@ const pageArr: Page[] = [
 ];
 
 export default pageArr;
+export { Page };

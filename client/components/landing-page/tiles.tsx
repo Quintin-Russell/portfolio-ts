@@ -1,8 +1,8 @@
 /** @tsx tsx */
 import React from 'react';
-import pageArr from '../../pages';
+import { Page } from '../../pages';
 
-const Tile = () => {
+const Tile = (props: { page: Page }) => {
   return <div>Tiles</div>;
 };
 
