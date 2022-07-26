@@ -1,5 +1,9 @@
 /** @tsx tsx */
 import React from 'react';
-import { jsx, css } from '@emotion/react';
+import pageArr from '../../pages';
 
-const Tile = () => {};
+const Tile = () => {
+  return <div>Tiles</div>;
+};
+
+export default Tile;
