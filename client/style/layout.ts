@@ -35,6 +35,9 @@ export default {
     background-size: cover !important;
     overflow: hidden scroll;
   `,
+  bkgBlack: css`
+    background-color: black;
+  `,
 
   // scroll
   scroll: css`

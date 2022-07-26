@@ -1,8 +1,5 @@
 /** @tsx tsx */
 import React, { ReactElement } from 'react';
-import { jsx, css } from '@emotion/react';
-import { useScreenSize } from '../../context/use-screen-size';
-import lessThan768 from '../functions/less-than-768';
 import Typewriter from '../typewriter';
 
 import QRFrance from '../../../server/public/images/qrPics/QRfrance.png';
@@ -16,7 +13,6 @@ const container = [
   layout.alignC,
   layout.justCent,
   layout.padding2rem,
-  // style.fade,
   style.dropshadow,
   style.textCent
 ];
@@ -29,7 +25,7 @@ const circle = [
   style.dropshadow,
   style.circle
 ];
-const jobDesc = [style.incon, style.light, layout.padding25];
+const jobDesc = [layout.bkgBlack, layout.padding25, style.incon, style.light];
 const aCss = [
   layout.padding25,
   layout.marginHalfRem,
@@ -39,56 +35,22 @@ const aCss = [
 ];
 
 const LandingPageHeader = (): ReactElement => {
-  const screenSize = useScreenSize();
   return (
     <React.Fragment>
       <div css={container}>
         <div css={circle}>
           <img css={style.circle} src={QRFrance} alt="QRfrance" />
-          {/* <h1 css={[style.incon, style.fontWeight300]}>{`<QR/>`}</h1> */}
         </div>
         <div css={[...jobDesc, layout.topPadding, style.font1halfrem]}>
-          {/* <div
-          css={
-            !lessThan768(screenSize.width)
-              ? [...jobDesc, style.font3rem]
-              : [...jobDesc, style.font2halfrem]
-          }
-        > */}
           <span css={style.landingPgTxt_or}>{`<`}</span>
           <span css={style.landingPgTxt_bl}>{`QuintinRussell `}</span>
-          {/* </div> */}
-          {/* <div
-          css={
-            !lessThan768(screenSize.width)
-              ? [...jobDesc, style.font3rem]
-              : [...jobDesc, style.font2halfrem]
-          }
-        > */}
           <span
             css={style.landingPgTxt_bl}
           >{`profession=“software-engineer” `}</span>
-          {/* </div> */}
-          {/* <div
-          css={
-            !lessThan768(screenSize.width)
-              ? [...jobDesc, style.font3rem]
-              : [...jobDesc, style.font2halfrem]
-          }
-        > */}
           <span
             css={style.landingPgTxt_bl}
           >{`tools=[“JavaScript”, “Python”, “CSS”, “HTML”] `}</span>
-          {/* </div> */}
-          {/* <div
-          css={
-            !lessThan768(screenSize.width)
-              ? [...jobDesc, style.font3rem, style.landingPgTxt_or]
-              : [...jobDesc, style.font2halfrem, style.landingPgTxt_or]
-          }
-        > */}
           <span css={[style.landingPgTxt_or]}>{`/>`}</span>
-          {/* </div> */}
         </div>
         <Typewriter
           font="pfDisp"
