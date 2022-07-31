@@ -71,14 +71,15 @@ const LandingPageHeader = (): ReactElement => {
           interval={300}
           cursorDisappear={true}
         />
-        <Typewriter
+        <p css={[style.monts, style.font1halfrem]}>Click a link below!</p>
+        {/* <Typewriter
           font="incon"
           fontSize="font1rem"
           tarString="Click a link below!"
           bold={['Click', 'a', 'link', 'below!']}
           interval={300}
-        />
-        <div
+        /> */}
+        {/* <div
           css={[
             layout.flex,
             layout.row,
@@ -86,13 +87,13 @@ const LandingPageHeader = (): ReactElement => {
             layout.justEven,
             layout.alignC
           ]}
-        ></div>
-      </div>{' '}
-      <div css={[layout.flex, layout.justEven, style.noBorderSides]}>
+        ></div> */}
+      </div>
+      {/* <div css={[layout.flex, layout.justEven, style.noBorderSides]}>
         <a css={aCss} href="#about">{`-ABOUT-`}</a>
         <a css={aCss} href="#projects">{`-SEE MY WORK-`}</a>
         <a css={aCss} href="#contact">{`-CONTACT ME-`}</a>
-      </div>
+      </div> */}
     </React.Fragment>
   );
 };

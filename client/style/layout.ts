@@ -224,5 +224,8 @@ export default {
 
   toolsMargin: css`
     margin: 1.5rem 0;
+  `,
+  tile: css`
+    border-radius: 1rem;
   `
 };

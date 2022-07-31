@@ -35,10 +35,10 @@ export default {
     );
   `,
 
-  glass: css`
-    background-color: rgba(170 170 170 / 6%);
-    backdrop-filter: blur(5px);
-  `,
+  // glass: css`
+  //   background-color: rgba(170 170 170 / 6%);
+  //   backdrop-filter: blur(5px);
+  // `,
 
   fadeSolid: css`
     background: linear-gradient(to right, #000000, #0c0c0c, rgb(132, 132, 132));

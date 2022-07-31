@@ -8,7 +8,7 @@ import Footer from '../components/footer';
 import LandingPageHeader from '../components/landing-page/landing-page-header';
 import Typewriter from '../components/typewriter';
 import Marquee from 'react-fast-marquee';
-import Tile from '../components/landing-page/tiles';
+import Tile from '../components/landing-page/tiles/tiles';
 
 import pageArr from '../pages';
 import lessThan768 from '../components/functions/less-than-768';
@@ -24,6 +24,15 @@ const marqueeDiv = [
   style.borderLight
 ];
 const marqueeA = [layout.margin1rem, layout.padding2rem, style.incon];
+// const linksHeading = [
+//   layout.flex,
+//   layout.col,
+//   layout.justCent,
+//   layout.padding25,
+//   layout.margin0,
+//   style.textCent,
+//   style.pfDisp
+// ];
 
 const settings = {
   pages: 2,
@@ -129,7 +138,7 @@ const LandingPage = () => {
 
         <ParallaxLayer>
           <LandingPageHeader />
-          <Typewriter
+          {/* <Typewriter
             font="incon"
             fontSize={
               !lessThan768(screenSize.width) ? 'font3rem' : 'font2halfrem'
@@ -139,6 +148,41 @@ const LandingPage = () => {
             interval={175}
           />
           <div css={[layout.flex, layout.justCent, layout.alignC]}>
+            {pageArr.map((x) => (
+              <Tile page={x} />
+            ))}
+          </div> */}
+          {/* <div
+            css={
+              !lessThan768(screenSize.width)
+                ? [...linksHeading, style.font3rem]
+                : [...linksHeading, style.font2halfrem]
+            }
+          >
+            <p css={[layout.margin0]}>Curiosity is what lead me here.</p>
+            {/* <Typewriter
+            font="pfDisp"
+            fontSize={
+              !lessThan768(screenSize.width) ? 'font3rem' : 'font2halfrem'
+            }
+            tarString="Curiosity is what lead me here."
+            bold={[]}
+            interval={175}
+          />
+            <p css={[layout.margin0]}>
+              Allow your curiosity to guide you through the links below.
+            </p>
+          </div> */}
+
+          <div
+            css={[
+              layout.flex,
+              layout.col,
+              layout.justCent,
+              layout.alignC,
+              layout.padding2rem
+            ]}
+          >
             {pageArr.map((x) => (
               <Tile page={x} />
             ))}
