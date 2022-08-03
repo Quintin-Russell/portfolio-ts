@@ -130,11 +130,8 @@ export default {
     border-bottom: 0.05rem solid #fff;
   `,
 
-  //component specific style
-  /*
-      border-top: 0.1rem solid white;
-  background-color: white;
-   */
+  //component specific stylegit add .
+
   circle: css`
     height: 11rem;
     border-radius: 50%;
