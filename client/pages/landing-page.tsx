@@ -130,15 +130,13 @@ const LandingPage = () => {
   };
 
   return (
-    <React.Fragment>
-      <Parallax css={[layout.bkg1]} pages={settings.pages}>
-        {/* <ParallaxLayer css={[layout.bkg1]} factor={settings.bkg1.factor}>
+    <div css={[layout.bkg1]}>
+      {/*pages={settings.pages}>
+         <ParallaxLayer css={[layout.bkg1]} factor={settings.bkg1.factor}>
           <Header />
         </ParallaxLayer> */}
-
-        <ParallaxLayer>
-          <LandingPageHeader />
-          {/* <Typewriter
+      <LandingPageHeader />
+      {/* <Typewriter
             font="incon"
             fontSize={
               !lessThan768(screenSize.width) ? 'font3rem' : 'font2halfrem'
@@ -152,7 +150,7 @@ const LandingPage = () => {
               <Tile page={x} />
             ))}
           </div> */}
-          {/* <div
+      {/* <div
             css={
               !lessThan768(screenSize.width)
                 ? [...linksHeading, style.font3rem]
@@ -174,28 +172,27 @@ const LandingPage = () => {
             </p>
           </div> */}
 
-          <div
-            css={[
-              layout.flex,
-              layout.col,
-              layout.justCent,
-              layout.alignC,
-              layout.padding2rem
-            ]}
-          >
-            {pageArr.map((x) => (
-              <Tile key={x.name} page={x} />
-            ))}
-          </div>
-        </ParallaxLayer>
-        {/* <ParallaxLayer
+      <div
+        css={[
+          layout.flex,
+          layout.col,
+          layout.justCent,
+          layout.alignC,
+          layout.padding2rem
+        ]}
+      >
+        {pageArr.map((x) => (
+          <Tile key={x.name} page={x} />
+        ))}
+      </div>
+      {/* <ParallaxLayer
           css={[layout.bkg2]}
           offset={settings.bkg2.offset}
           factor={settings.bkg2.factor}
         >
           <Footer />
         </ParallaxLayer> */}
-        {/* <ParallaxLayer
+      {/* <ParallaxLayer
           offset={settings.parallax1.offset}
           speed={settings.parallax1.speed}
           factor={settings.parallax1.factor}
@@ -266,7 +263,7 @@ const LandingPage = () => {
               cursorDisappear={true}
               interval={200}
             /> */}
-        {/* {render2ndTW(firstTWCompleted)}
+      {/* {render2ndTW(firstTWCompleted)}
           </div>
 
           {/* <div
@@ -281,11 +278,10 @@ const LandingPage = () => {
             <span css={style.landingPgTxt_or}>{`>`}</span>
           </div>
         </ParallaxLayer>*/}
-        {/* <ParallaxLayer offset={1.15} factor={0.5} speed={0.75}>
+      {/* <ParallaxLayer offset={1.15} factor={0.5} speed={0.75}>
           {renderMarquee(screenSize.height, screenSize.width)}
         </ParallaxLayer> */}
-      </Parallax>
-    </React.Fragment>
+    </div>
   );
 };
 
