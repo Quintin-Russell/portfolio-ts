@@ -184,7 +184,7 @@ const LandingPage = () => {
             ]}
           >
             {pageArr.map((x) => (
-              <Tile page={x} />
+              <Tile key={x.name} page={x} />
             ))}
           </div>
         </ParallaxLayer>

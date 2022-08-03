@@ -6,6 +6,7 @@ import QRFrance from '../../../server/public/images/qrPics/QRfrance.png';
 
 import style from '../../style/style';
 import layout from '../../style/layout';
+import Header from '../header';
 
 const container = [
   layout.flex,
@@ -14,7 +15,8 @@ const container = [
   layout.justCent,
   layout.padding2rem,
   style.dropshadow,
-  style.textCent
+  style.textCent,
+  style.borderBottom
 ];
 const circle = [
   layout.flex,
@@ -37,6 +39,7 @@ const aCss = [
 const LandingPageHeader = (): ReactElement => {
   return (
     <React.Fragment>
+      <Header />
       <div css={container}>
         <div css={circle}>
           <img css={style.circle} src={QRFrance} alt="QRfrance" />
@@ -72,28 +75,7 @@ const LandingPageHeader = (): ReactElement => {
           cursorDisappear={true}
         />
         <p css={[style.monts, style.font1halfrem]}>Click a link below!</p>
-        {/* <Typewriter
-          font="incon"
-          fontSize="font1rem"
-          tarString="Click a link below!"
-          bold={['Click', 'a', 'link', 'below!']}
-          interval={300}
-        /> */}
-        {/* <div
-          css={[
-            layout.flex,
-            layout.row,
-            layout.width100,
-            layout.justEven,
-            layout.alignC
-          ]}
-        ></div> */}
       </div>
-      {/* <div css={[layout.flex, layout.justEven, style.noBorderSides]}>
-        <a css={aCss} href="#about">{`-ABOUT-`}</a>
-        <a css={aCss} href="#projects">{`-SEE MY WORK-`}</a>
-        <a css={aCss} href="#contact">{`-CONTACT ME-`}</a>
-      </div> */}
     </React.Fragment>
   );
 };

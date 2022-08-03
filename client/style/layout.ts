@@ -143,6 +143,10 @@ export default {
     padding: 0.25rem;
   `,
 
+  paddingHalfrem: css`
+    padding: 0.5rem;
+  `,
+
   padding2rem: css`
     padding: 2rem;
   `,

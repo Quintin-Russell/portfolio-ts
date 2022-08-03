@@ -123,8 +123,8 @@ export default {
     border-bottom: 0;
   `,
 
-  noBorderSides: css`
-    border-top: 0.05rem solid #fff;
+  borderBottom: css`
+    border-top: 0;
     border-left: 0;
     border-right: 0;
     border-bottom: 0.05rem solid #fff;
