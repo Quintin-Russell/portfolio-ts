@@ -21,7 +21,7 @@ export default function App() {
     height: window.innerHeight
   });
 
-  document.title = '../server/public/images/flavicon/favicn.ico';
+  document.title = `<QuintinRussell />`;
   window.addEventListener('resize', (): void => {
     const width = window.innerWidth;
     const height = window.innerHeight;

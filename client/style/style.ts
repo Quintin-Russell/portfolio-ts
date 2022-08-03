@@ -1,4 +1,4 @@
-import { css } from '@emotion/react';
+import { css, keyframes } from '@emotion/react';
 
 export default {
   //fonts
@@ -18,6 +18,10 @@ export default {
     font-weight: 600;
   `,
 
+  fontWeight300: css`
+    font-weight: 300;
+  `,
+
   light: css`
     font-weight: 100;
   `,
@@ -30,6 +34,11 @@ export default {
       rgba(132, 132, 132, 0.5)
     );
   `,
+
+  // glass: css`
+  //   background-color: rgba(170 170 170 / 6%);
+  //   backdrop-filter: blur(5px);
+  // `,
 
   fadeSolid: css`
     background: linear-gradient(to right, #000000, #0c0c0c, rgb(132, 132, 132));
@@ -60,6 +69,10 @@ export default {
   `,
 
   //component specific text
+  dropshadow: css`
+    filter: drop-shadow(0 0 1rem black);
+  `,
+
   fadeTxt: css`
     font-size: 2rem;
     font-weight: 300;
@@ -110,7 +123,23 @@ export default {
     border-bottom: 0;
   `,
 
+  borderBottom: css`
+    border-top: 0;
+    border-left: 0;
+    border-right: 0;
+    border-bottom: 0.05rem solid #fff;
+  `,
+
   //component specific style
+  /*
+      border-top: 0.1rem solid white;
+  background-color: white;
+   */
+  circle: css`
+    height: 11rem;
+    border-radius: 50%;
+  `,
+
   techIconBasics: css`
     height: 10rem;
   `,
@@ -162,4 +191,16 @@ export default {
   img: css`
     height: 5rem;
   `,
+
+  bounce: keyframes`
+      49% {
+        opacity: 1;
+      }
+      50% {
+        opacity: 0;
+      }
+      99% {
+        opacity: 0;
+      }
+    `
 };

@@ -1,8 +1,6 @@
 /** @jsx jsx */
-import React, { useState, useReducer, useEffect } from 'react';
-// import { jsx, css } from '@emotion/react';
-import { jsx } from '@emotion/react';
-import { css } from '@emotion/core';
+import React, { useState, useReducer, useEffect, ReactElement } from 'react';
+import { jsx, css, SerializedStyles } from '@emotion/react';
 
 import style from '../style/style';
 import layout from '../style/layout';
@@ -21,27 +19,31 @@ interface Word {
   bold: string;
 }
 
-export default function Typewriter(props: TypewriterProps) {
-  const [cursor, setCursor] = useState<boolean>(true);
-  let [counter, setCounter] = useState<number>(0);
-  const [dispString, pushDispString] = useReducer(
-    (dispString: Word[], newVal: Word) => [...dispString, newVal],
+export default function Typewriter(props: TypewriterProps): ReactElement {
+  const [typingComplete, setTypingComplete] = useState(false);
+
+  // Add next value to current string each time called
+  const [displayString, dispatchDisplayString] = useReducer(
+    (currentString: Word[], nextValue: Word) => [...currentString, nextValue],
     []
   );
-
-  const tarStringSplit: string[] = props.tarString
+  let counter = 0;
+  const tarStringSplit: string[] | null = props.tarString
     ? props.tarString.split(' ')
-    : [];
+    : null;
+  const font: SerializedStyles | null = props.font ? style[props.font] : null;
+  const fontSize: SerializedStyles | null = props.fontSize
+    ? style[props.fontSize]
+    : null;
+
+  // Animation runs at twice the speed of the word display
+  // slow it down by increasing the interval
+  const cursorBlinkSpeed = props.interval * 2;
 
   useEffect(() => {
     const intCursor = setInterval(() => {
-      if (props.cursorDisappear && counter === tarStringSplit.length) {
-        setCursor(false);
-      } else {
-        setCursor((cursor) => !cursor);
-      }
-      if (cursor && counter !== tarStringSplit.length) {
-        const nextWord = props.bold.includes(tarStringSplit[counter])
+      if (counter < tarStringSplit.length) {
+        const nextWord: Word = props.bold.includes(tarStringSplit[counter])
           ? {
               word: tarStringSplit[counter],
               bold: 'bold'
@@ -50,39 +52,46 @@ export default function Typewriter(props: TypewriterProps) {
               word: tarStringSplit[counter],
               bold: 'normal'
             };
-        pushDispString(nextWord);
-        setCounter(counter++);
+
+        // If this is the last word in the display text
+        // Note: counter starts at 0, length starts at 1
+        if (counter === tarStringSplit.length - 1) {
+          setTypingComplete(true);
+        }
+        // Add next word
+        dispatchDisplayString(nextWord);
+
+        // Update/Add to counter
+        counter++;
       }
     }, props.interval);
 
     return () => clearInterval(intCursor);
   }, []);
 
-  const font = props.font ? style[props.font] : null;
-  const fontSize = props.fontSize ? style[props.fontSize] : null;
-
   return (
     <p css={[layout.padding25, style.textCent]}>
-      {dispString.map((x) => (
-        <React.Fragment>
-          <span
-            key={x.word}
-            css={
-              x.bold === 'bold'
-                ? [font, fontSize, style.bold]
-                : [font, fontSize]
-            }
-          >
-            {x.word}{' '}
-          </span>
-          <span key={`${x.word}1`}> </span>
-        </React.Fragment>
+      {displayString.map((x, index) => (
+        <span
+          key={index}
+          css={[font, fontSize, x.bold === 'bold' ? style.bold : '']}
+        >
+          {x.word}{' '}
+        </span>
       ))}
-      <span
-        css={cursor ? [font, fontSize] : [layout.noVisibility, font, fontSize]}
-      >
-        |
-      </span>
+      {!typingComplete ? (
+        <span
+          css={[
+            css`
+              animation: ${style.bounce} ${cursorBlinkSpeed}ms ease infinite;
+            `,
+            font,
+            fontSize
+          ]}
+        >
+          |
+        </span>
+      ) : null}
     </p>
   );
 }
